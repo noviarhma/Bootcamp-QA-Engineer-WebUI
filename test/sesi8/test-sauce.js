@@ -6,11 +6,18 @@ import { expect } from 'chai';
 describe('Google Search Test', function() {
     let driver;
 
-    it('Visit SauceDemo dan cek page title', async function () {
-        //Open website url
+     //Hook Open website url
+    before(async function () {
         driver = await new Builder().forBrowser('firefox').build();
         await driver.get('https://www.saucedemo.com/');
+    })
 
+    //Hook close browser
+    after(async function () {
+        await driver.quit();
+    })
+
+    it('Visit SauceDemo dan cek page title', async function () {
         //Login form
         let inputUsername = await driver.findElement(By.css('[data-test="username"]'))
         let inputPassword = await driver.findElement(By.xpath('//*[@id="password"]'))
@@ -36,9 +43,5 @@ describe('Google Search Test', function() {
         await optionFilter.click();
 
         await driver.sleep(1700);
-
-
-        //close browser
-        await driver.quit();
-    })
+    });
 });
