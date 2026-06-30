@@ -1,0 +1,119 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-21T06:36:40.439Z",
+    "end": "2026-06-21T06:36:49.314Z",
+    "duration": 8875,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7cb8ec55-07a0-49cb-a596-2be964e326d1",
+      "title": "",
+      "fullFile": "D:\\Digitalskola\\Bootcamp-QA-Engineer\\Homework 8\\test\\sesi8\\test-sauce.js",
+      "file": "\\test\\sesi8\\test-sauce.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "08199157-1a99-4490-9f00-d73dba1eb602",
+          "title": "Google Search Test",
+          "fullFile": "D:\\Digitalskola\\Bootcamp-QA-Engineer\\Homework 8\\test\\sesi8\\test-sauce.js",
+          "file": "\\test\\sesi8\\test-sauce.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visit SauceDemo dan cek page title",
+              "fullTitle": "Google Search Test Visit SauceDemo dan cek page title",
+              "timedOut": false,
+              "duration": 6137,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Open website url\ndriver = await new Builder().forBrowser('firefox').build();\nawait driver.get('https://www.saucedemo.com/');\n//Login form\nlet inputUsername = await driver.findElement(By.css('[data-test=\"username\"]'))\nlet inputPassword = await driver.findElement(By.xpath('//*[@id=\"password\"]'))\nlet buttonLogin = await driver.findElement(By.className('submit-button btn_action'))\nawait inputUsername.sendKeys('standard_user')\nawait inputPassword.sendKeys('secret_sauce')\nawait buttonLogin.click()\n//Validasi\nconst buttonChart = await driver.findElement(By.className('shopping_cart_container'))\nconst isDisplayed = await buttonChart.isDisplayed();\nexpect(isDisplayed).to.be.true;\nawait driver.sleep(1700);",
+              "err": {},
+              "uuid": "efa19d55-29cc-46e9-937d-91187c31ff08",
+              "parentUUID": "08199157-1a99-4490-9f00-d73dba1eb602",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Sorting Data Desc",
+              "fullTitle": "Google Search Test Sorting Data Desc",
+              "timedOut": false,
+              "duration": 2732,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Filter Sorting Data\nlet dropdownSort = await driver.findElement(By.xpath('//*[@id=\"header_container\"]/div[2]/div/span/select'))\nawait dropdownSort.click()\nlet optionFilter = await driver.findElement(By.xpath('//*[@id=\"header_container\"]/div[2]/div/span/select/option[2]'))\nawait optionFilter.click();\nawait driver.sleep(1700);\n\n//close browser\nawait driver.quit();",
+              "err": {},
+              "uuid": "15aef53a-d4f0-4fe8-b5b4-3d709a2cf747",
+              "parentUUID": "08199157-1a99-4490-9f00-d73dba1eb602",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "efa19d55-29cc-46e9-937d-91187c31ff08",
+            "15aef53a-d4f0-4fe8-b5b4-3d709a2cf747"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8869,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.3.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
